@@ -145,14 +145,14 @@ class SpeechDetectionViewController: UIViewController, SFSpeechRecognizerDelegat
         try audioSession.setCategory(AVAudioSessionCategoryRecord)
         try audioSession.setMode(AVAudioSessionModeDefault)
         try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
-        try audioSession.setPreferredSampleRate(24000)
+        try audioSession.setPreferredSampleRate(24000) //Sameple Rate
         
         request = SFSpeechAudioBufferRecognitionRequest()
         guard let node = audioEngine.inputNode else { return }
         
         let recordingFormat = node.outputFormat(forBus: 0)
         request?.shouldReportPartialResults = true
-        request?.taskHint = SFSpeechRecognitionTaskHint.search
+        request?.taskHint = SFSpeechRecognitionTaskHint.search //Task Hint
         
         node.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { buffer, _ in
             self.request?.append(buffer)
