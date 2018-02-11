@@ -1,0 +1,6 @@
+framework module Pods_Speech_Recognition_Demo {
+  umbrella header "Pods-Speech-Recognition-Demo-umbrella.h"
+
+  export *
+  module * { export * }
+}
